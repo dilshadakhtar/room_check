@@ -14,6 +14,7 @@ def upload_image(image_file):
     """
     try:
         # Return the secure URL of the uploaded image
+        print(image_file)
         image_file.save("uploaded.png")
         print("Image Uploaded")
         return image_file
@@ -39,7 +40,7 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Room Image', use_column_width=True)
 
     # Upload the image to get a publicly accessible URL
-    image_url = upload_image(uploaded_file)
+    image_url = upload_image(image)
     print(image_url)
     # Generate modified image on button click
     if st.button("Modify Room") and image_url:
